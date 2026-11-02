@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew Karu | Website Development Training & Services – Lae, PNG</title>
+  <style>
+    :root {
+      --gold: #d79a32;
+      --gold2: #f3c66c;
+      --ink: #0f1219;
+      --ink2: #181c28;
+      --paper: #f7f5ef;
+      --muted: #8b90a0;
+      --white: #ffffff;
+      --whatsapp: #25D366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--paper);
+      color: #1e2230;
+      line-height: 1.65;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1120px, 92%); margin: 0 auto; }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--ink);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+    }
+    .brand span { color: var(--gold2); }
+    nav {
+      display: flex;
+      gap: 26px;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+    nav a:hover { color: var(--gold2); }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #0c0f16 0%, #1a1f2e 100%);
+      color: white;
+      padding: 95px 0 85px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border: 2px solid rgba(215,154,50,0.18);
+      transform: rotate(45deg);
+      right: -140px;
+      top: -110px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 50px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      color: var(--gold2);
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 5.5vw, 3.9rem);
+      line-height: 1.08;
+      letter-spacing: -1.3px;
+      margin-bottom: 18px;
+    }
+    h1 em { font-style: normal; color: var(--gold2); }
+    .hero p {
+      color: #c5c9d4;
+      font-size: 1.12rem;
+      max-width: 560px;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold2), var(--gold));
+      color: #111;
+      padding: 14px 26px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.15s ease;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(215,154,50,0.35);
+    }
+    .btn.alt {
+      background: transparent;
+      border: 1.5px solid var(--gold2);
+      color: white;
+      margin-left: 12px;
+    }
+    .btn.alt:hover {
+      background: rgba(243,198,108,0.1);
+      box-shadow: none;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+      transform: rotate(1.5deg);
+    }
+    .cert-box {
+      background: linear-gradient(160deg, #151a26, #252b3a);
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold2);
+      text-align: center;
+      padding: 20px;
+    }
+    .cert-box .icon { font-size: 2.5rem; margin-bottom: 8px; }
+    .cert-box strong { font-size: 1.05rem; }
+    .cert-box span { font-size: 0.82rem; color: #9aa0b0; margin-top: 4px; }
+    .hero-card small {
+      display: block;
+      text-align: center;
+      color: #666;
+      font-size: 0.82rem;
+      margin-top: 10px;
+    }
+
+    /* ===== STATS ===== */
+    .stats {
+      background: var(--gold);
+      color: #111;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 22px 0;
+      font-weight: 700;
+    }
+    .stats-grid span {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      opacity: 0.75;
+      margin-top: 3px;
+    }
+
+    /* ===== COMMON SECTION ===== */
+    section { padding: 85px 0; }
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 48px;
+    }
+    .section-title h2 {
+      font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-title p { color: #5c6375; }
+
+    /* ===== ABOUT ===== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .about-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--ink);
+    }
+    .about-content p {
+      color: #4b5563;
+      margin-bottom: 16px;
+    }
+    .about-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .about-list li {
+      padding: 8px 0;
+      padding-left: 28px;
+      position: relative;
+      color: #374151;
+    }
+    .about-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .about-card {
+      background: var(--ink);
+      color: white;
+      border-radius: 16px;
+      padding: 36px 32px;
+      border-top: 4px solid var(--gold);
+    }
+    .about-card h4 {
+      color: var(--gold2);
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+    .about-card p { color: #c5c9d4; margin-bottom: 18px; }
+    .about-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .about-meta div {
+      background: rgba(255,255,255,0.06);
+      padding: 14px;
+      border-radius: 8px;
+    }
+    .about-meta strong {
+      display: block;
+      color: var(--gold2);
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    /* ===== SERVICES ===== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid #e8e4db;
+      border-radius: 14px;
+      padding: 30px 26px;
+      box-shadow: 0 6px 20px rgba(20,30,50,0.04);
+      transition: 0.2s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(20,30,50,0.08);
+    }
+    .service-card .icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      color: #5c6375;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+    .service-card ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    .service-card li {
+      padding: 5px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+    .service-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ===== BLOG ===== */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+    .blog-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #e8e4db;
+      box-shadow: 0 6px 20px rgba(20,30,50,0.04);
+      transition: 0.2s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(20,30,50,0.08);
+    }
+    .blog-img {
+      height: 180px;
+      background: linear-gradient(135deg, #1a1f2e, #2a3142);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold2);
+      font-size: 2.5rem;
+    }
+    .blog-body {
+      padding: 22px 22px 26px;
+    }
+    .blog-date {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .blog-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .blog-card p {
+      color: #5c6375;
+      font-size: 0.92rem;
+      margin-bottom: 16px;
+    }
+    .read-more {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .read-more:hover { text-decoration: underline; }
+
+    /* ===== PRICING ===== */
+    .pricing {
+      background: var(--ink);
+      color: white;
+    }
+    .pricing .section-title p { color: var(--muted); }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .price-card {
+      background: white;
+      color: #1e2230;
+      border-radius: 14px;
+      padding: 32px 26px;
+      border: 1px solid #e5e1d8;
+      display: flex;
+      flex-direction: column;
+    }
+    .price-card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: 0 16px 40px rgba(215,154,50,0.22);
+      transform: scale(1.03);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--gold2);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .price-card.featured .tag {
+      background: var(--gold);
+      color: #111;
+    }
+    .amount {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .amount small {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #6b7280;
+    }
+    .price-card h3 {
+      font-size: 1.2rem;
+      margin: 12px 0 18px;
+    }
+    .price-card ul {
+      list-style: none;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+    .price-card li {
+      padding: 7px 0;
+      color: #4b5563;
+      font-size: 0.95rem;
+      position: relative;
+      padding-left: 22px;
+    }
+    .price-card li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .price-card .btn {
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+    }
+    .note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 32px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: linear-gradient(130deg, #111521, #1f2535);
+      color: white;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    .contact h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      margin-bottom: 16px;
+    }
+    .contact p {
+      color: #b8bdc9;
+      margin-bottom: 28px;
+    }
+    .contact-box {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .contact-box p {
+      margin: 12px 0;
+      color: #e1e2e7;
+    }
+    .contact-box strong {
+      color: var(--gold2);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #090c12;
+      color: #8a8f9c;
+      text-align: center;
+      padding: 30px 0;
+      font-size: 0.88rem;
+    }
+    footer .fine {
+      font-size: 0.78rem;
+      margin-top: 8px;
+      opacity: 0.8;
+    }
+
+    /* ===== FLOATING CONTACT BUTTON ===== */
+    .float-contact {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .float-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--whatsapp);
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45);
+      transition: all 0.25s ease;
+      animation: pulse 2.5s infinite;
+    }
+    .float-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+    }
+    .float-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    .float-info {
+      background: var(--ink);
+      color: white;
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border: 1px solid rgba(215,154,50,0.3);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      max-width: 240px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.25s ease;
+    }
+    .float-info.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .float-info strong {
+      color: var(--gold2);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .float-info a {
+      color: var(--gold2);
+      font-weight: 600;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45); }
+      50% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7), 0 0 0 12px rgba(37, 211, 102, 0.15); }
+      100% { box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+      .hero-card { max-width: 420px; margin: 0 auto; }
+      .services-grid,
+      .blog-grid,
+      .price-grid { grid-template-columns: 1fr 1fr; }
+      .price-card.featured { transform: none; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    }
+    @media (max-width: 560px) {
+      .nav { flex-direction: column; align-items: flex-start; padding: 14px 0; }
+      nav { gap: 14px; }
+      .hero { padding: 65px 0 55px; }
+      .btn.alt { margin-left: 0; margin-top: 10px; display: inline-block; }
+      .services-grid,
+      .blog-grid,
+      .price-grid,
+      .stats-grid { grid-template-columns: 1fr; }
+      section { padding: 60px 0; }
+      .float-contact { bottom: 20px; right: 16px; }
+      .float-btn span { display: none; }
+      .float-btn { padding: 16px; border-radius: 50%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand">AK <span>WEB DEVELOPMENT</span></div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#blog">Blog</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO / HOME -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Practical skills · Real projects · Lae, PNG</div>
+        <h1>Build your skills.<br><em>Launch your website.</em></h1>
+        <p>Learn how to plan, design, build and publish professional mobile-friendly websites in an intensive 5-day hands-on training — or let us build your business website for you.</p>
+        <a href="https://wa.me/67583620401" class="btn" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        <a href="#pricing" class="btn alt">View Pricing</a>
+      </div>
+      <div class="hero-card">
+        <div class="cert-box">
+          <div class="icon">📜</div>
+          <strong>Certificate of Completion</strong>
+          <span>5-Day Website Development Training</span>
+        </div>
+        <small>Practical learning pathway · Lae, Morobe Province</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="wrap stats-grid">
+      <div>5 DAYS<span>Intensive practical training</span></div>
+      <div>HTML · CSS · JS<span>Core web technologies</span></div>
+      <div>MOBILE READY<span>Responsive design skills</span></div>
+      <div>GO LIVE<span>Hosting & deployment</span></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>About Andrew Karu</h2>
+        <p>Practical website training and development services based in Lae, Papua New Guinea.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-content">
+          <h3>Helping people and businesses get online</h3>
+          <p>I am Andrew Karu, a web development trainer and website builder based in Lae, Morobe Province. My focus is simple: give people practical skills they can use immediately, and deliver clean, mobile-friendly websites for local businesses.</p>
+          <p>Whether you want to learn how websites work so you can build your own, or you prefer to have a professional site created for your business, I provide clear, hands-on support from start to finish.</p>
+          <ul class="about-list">
+            <li>5-day practical website development training</li>
+            <li>Business website design & development</li>
+            <li>Mobile-first, responsive websites</li>
+            <li>Domain, hosting and launch support</li>
+            <li>Based in Lae – serving clients across PNG</li>
+          </ul>
+        </div>
+        <div class="about-card">
+          <h4>Training & Services</h4>
+          <p>My programs and packages are designed for beginners, small business owners, students and anyone who wants a professional online presence without unnecessary complexity.</p>
+          <div class="about-meta">
+            <div>
+              <strong>Location</strong>
+              Lae, Morobe Province
+            </div>
+            <div>
+              <strong>WhatsApp</strong>
+              +675 8362 0401
+            </div>
+            <div>
+              <strong>Focus</strong>
+              Practical skills & real results
+            </div>
+            <div>
+              <strong>Approach</strong>
+              Clear, hands-on & local
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="background: #f0eee8;">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Choose the path that suits you — learn the skills yourself or let me build your website.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">🎓</div>
+          <h3>5-Day Website Training</h3>
+          <p>Intensive practical course covering the full process of building and publishing a website.</p>
+          <ul>
+            <li>HTML, CSS & JavaScript basics</li>
+            <li>Responsive design principles</li>
+            <li>Website planning & structure</li>
+            <li>Hosting & going live</li>
+            <li>Certificate of completion</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">🌐</div>
+          <h3>Starter Business Website</h3>
+          <p>A clean, professional website for small businesses that need a strong online presence quickly.</p>
+          <ul>
+            <li>Up to 5 pages</li>
+            <li>Mobile-friendly design</li>
+            <li>About, services & contact</li>
+            <li>WhatsApp button</li>
+            <li>Launch support</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="icon">🚀</div>
+          <h3>Professional Website</h3>
+          <p>Custom branded websites with more pages, gallery options and stronger online visibility.</p>
+          <ul>
+            <li>Up to 8 pages</li>
+            <li>Custom design</li>
+            <li>Gallery / portfolio</li>
+            <li>Enquiry form</li>
+            <li>Basic SEO & analytics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Blog & Resources</h2>
+        <p>Practical tips on websites, digital skills and getting your business online in Papua New Guinea.</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-img">📱</div>
+          <div class="blog-body">
+            <div class="blog-date">October 2026</div>
+            <h3>Why every small business in Lae needs a mobile-friendly website</h3>
+            <p>Most customers now search and browse on their phones. Here’s why a responsive website is no longer optional.</p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-img">🛠️</div>
+          <div class="blog-body">
+            <div class="blog-date">September 2026</div>
+            <h3>HTML, CSS & JavaScript – what beginners should learn first</h3>
+            <p>A simple breakdown of the three core technologies used to build websites and the best order to learn them.</p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-img">🌍</div>
+          <div class="blog-body">
+            <div class="blog-date">August 2026</div>
+            <h3>How to choose a domain name and hosting for your PNG business</h3>
+            <p>Practical advice on picking a good domain, understanding hosting options, and keeping costs under control.</p>
+            <a href="#" class="read-more">Read more →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Clear PNG Kina Pricing</h2>
+        <p>Transparent packages. Enquire before payment so scope and schedule are confirmed in writing.</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="tag">LEARN THE SKILLS</div>
+          <div class="amount">K850 <small>/ participant</small></div>
+          <h3>5-Day Training</h3>
+          <ul>
+            <li>Five days of guided practical lessons</li>
+            <li>HTML, CSS & JavaScript basics</li>
+            <li>Responsive website mini-project</li>
+            <li>Hosting & publishing introduction</li>
+            <li>Certificate of completion</li>
+          </ul>
+          <a href="https://wa.me/67583620401" class="btn" target="_blank" rel="noopener">Enquire / Enrol</a>
+        </div>
+        <div class="price-card featured">
+          <div class="tag">MOST POPULAR</div>
+          <div class="amount">K1,500 <small>/ project</small></div>
+          <h3>Starter Business Website</h3>
+          <ul>
+            <li>Up to 5 standard pages</li>
+            <li>Mobile-friendly design</li>
+            <li>About, services & contact sections</li>
+            <li>WhatsApp contact button</li>
+            <li>Basic SEO setup & launch support</li>
+            <li>Target delivery: 5–7 working days</li>
+          </ul>
+          <a href="https://wa.me/67583620401" class="btn" target="_blank" rel="noopener">Order a Website</a>
+        </div>
+        <div class="price-card">
+          <div class="tag">GROW YOUR BUSINESS</div>
+          <div class="amount">K2,500 <small>/ project</small></div>
+          <h3>Professional Website</h3>
+          <ul>
+            <li>Up to 8 standard pages</li>
+            <li>Custom branded design</li>
+            <li>Gallery or portfolio section</li>
+            <li>Enquiry form setup</li>
+            <li>Basic SEO & analytics</li>
+            <li>Target delivery: 7–10 working days</li>
+          </ul>
+          <a href="https://wa.me/67583620401" class="btn" target="_blank" rel="noopener">Request a Quote</a>
+        </div>
+      </div>
+      <p class="note">
+        Prices are in Papua New Guinea Kina (PGK). The K850 training fee is benchmarked against publicly listed 5-day HTML/CSS courses in PNG. Domain registration, premium hosting, paid plugins and major custom features may cost extra and will be quoted before work begins.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="eyebrow">Start your digital journey</div>
+        <h2>Ready to learn or launch your website?</h2>
+        <p>Message Andrew Karu on WhatsApp for training enrolment, website packages, group bookings or a custom quote.</p>
+        <a href="https://wa.me/67583620401" class="btn" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+      <div class="contact-box">
+        <p><strong>Contact Person</strong>Andrew Karu</p>
+        <p><strong>WhatsApp</strong>+675 8362 0401</p>
+        <p><strong>Location</strong>Top Town Backside, 8six Show, Buttibum Progress<br>Lae 411, Morobe Province, Papua New Guinea</p>
+        <p><strong>Availability</strong>Training and website projects by appointment</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <p>© 2026 Andrew Karu · Website Development Training & Services · Lae, Morobe Province, Papua New Guinea</p>
+      <p class="fine">Course completion does not imply government, university or TVET accreditation unless confirmed in writing.</p>
+    </div>
+  </footer>
+
+  <!-- ===== FLOATING CONTACT BUTTON ===== -->
+  <div class="float-contact">
+    <div class="float-info" id="floatInfo">
+      <strong>Andrew Karu</strong>
+      WhatsApp: <a href="https://wa.me/67583620401" target="_blank" rel="noopener">+675 8362 0401</a><br>
+      Lae, Morobe Province
+    </div>
+    <a href="https://wa.me/67583620401" class="float-btn" target="_blank" rel="noopener" id="floatBtn" title="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.85 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <span>Chat on WhatsApp</span>
+    </a>
+  </div>
+
+  <script>
+    // Show contact info when hovering the floating button (desktop)
+    const floatBtn = document.getElementById('floatBtn');
+    const floatInfo = document.getElementById('floatInfo');
+
+    floatBtn.addEventListener('mouseenter', () => {
+      floatInfo.classList.add('show');
+    });
+    floatBtn.addEventListener('mouseleave', () => {
+      floatInfo.classList.remove('show');
+    });
+
+    // Also show on click for mobile
+    floatBtn.addEventListener('click', (e) => {
+      // On mobile the link will still open WhatsApp
+      // Optional: briefly show the info panel
+      floatInfo.classList.add('show');
+      setTimeout(() => floatInfo.classList.remove('show'), 2500);
+    });
+  </script>
+
+</body>
+</html>
